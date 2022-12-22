@@ -1,0 +1,23 @@
+(define (tuplist l1 l2)
+  (if (null? l1) '()
+    (if (null? l2) '()
+      (append
+        (cons
+          (list (car l1) (car l2))
+          (elelist (car l1) (cdr l2))
+          )
+        (tuplist (cdr l1) l2)
+      )
+    )
+  )
+)
+(define (elelist n l)
+  (if (null? n)'()
+    (if (null? l) '()
+      (cons
+        (list n (car l))
+        (elelist n (cdr l))
+      )
+    )
+  )
+)
